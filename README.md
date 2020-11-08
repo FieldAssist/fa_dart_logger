@@ -10,7 +10,7 @@ Add following code in `pubspec.yaml` file in `dependencies`:
   fa_flutter_logger:
     git:
       url: https://github.com/FieldAssist/fa_flutter_logger.git
-      ref: master
+      ref: main
 ```
 
 ## Usage
