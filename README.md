@@ -1,15 +1,15 @@
-# fa_flutter_logger
+# fa_dart_logger
 
-Official FA Flutter logger package.
+Official FA Dart logger package.
 
 ## Getting Started
 
 Add following code in `pubspec.yaml` file in `dependencies`:
 
 ```
-  fa_flutter_logger:
+  fa_dart_logger:
     git:
-      url: https://github.com/FieldAssist/fa_flutter_logger.git
+      url: https://github.com/FieldAssist/fa_dart_logger.git
       ref: main
 ```
 
