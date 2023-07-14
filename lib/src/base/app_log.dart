@@ -24,4 +24,7 @@ abstract class AppLog {
 
   /// For logging some Unusual Behaviour
   void wtf(dynamic object);
+
+  ///For logging events remotely
+  void r(String endpoints, String method, String response);
 }

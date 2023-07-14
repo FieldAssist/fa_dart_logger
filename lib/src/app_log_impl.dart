@@ -1,5 +1,6 @@
 import 'package:logger/logger.dart';
 
+import '../api_logger.dart';
 import 'base/app_log.dart';
 import 'logger/output/my_console_output.dart';
 import 'logger/printer/my_pretty_printer.dart';
@@ -16,6 +17,7 @@ class AppLogImpl implements AppLog {
 
   final String? packageName;
   late Logger _logger;
+  final apiLogger = ApiLogger();
 
   @override
   void d(object) {
@@ -45,5 +47,10 @@ class AppLogImpl implements AppLog {
   @override
   void wtf(object) {
     _logger.wtf(object);
+  }
+
+  @override
+  void r(String endpoint, String method, String response) {
+    apiLogger.logEvent(endpoint, method, response);
   }
 }
