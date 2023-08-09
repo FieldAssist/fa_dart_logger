@@ -1,3 +1,7 @@
+import 'package:fa_dart_logger/src/logger/helper/log_helper.dart';
+
+import '../logger/model/index.dart';
+
 /// [AppLog] is used to provide an abstract logger base for various
 /// logging needs. Extend this class to create your own logging
 /// class for every logging usage. You can replace [print] and use
@@ -24,4 +28,10 @@ abstract class AppLog {
 
   /// For logging some Unusual Behaviour
   void wtf(dynamic object);
+
+  ///For logging events remotely
+  void r(
+    LogInfo logInfo, {
+    Severity severity = Severity.high,
+  });
 }
