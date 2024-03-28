@@ -24,7 +24,10 @@ class AppLogImpl implements AppLog {
 
   @override
   void e(object, StackTrace s) {
-    _logger.e(object, null, s);
+    _logger.e(
+      object,
+      stackTrace: s,
+    );
   }
 
   @override
