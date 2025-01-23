@@ -81,19 +81,33 @@ class MyPrettyPrinter extends LogPrinter {
   ) {
     final formatted = <String>[];
 
-    var emoji = _getEmoji(level);
+    final emoji = _getEmoji(level);
 
     if (level == Level.error) {
       formatted.add('------EXCEPTION-------');
     }
 
+    //Why chunkSize = 800?
+    //print() function prints approx 800 - 1000 characters
+    //on console, which was causing half of the logs to get trim.
+    const chunkSize = 800;
+
     //message
-    for (final line in message.split('\n')) {
-      formatted.add('$emoji$line');
+    if (message.length <= chunkSize) {
+      formatted.add('$emoji$message');
+    } else {
+      var startIndex = 0;
+      while (startIndex < message.length) {
+        final endIndex = startIndex + chunkSize;
+        final actualEndIndex =
+            endIndex < message.length ? endIndex : message.length;
+        formatted.add(message.substring(startIndex, actualEndIndex));
+        startIndex = endIndex;
+      }
     }
     //error
     if (error != null) {
-      for (var line in error.split('\n')) {
+      for (final line in error.split('\n')) {
         formatted.add(line);
       }
     }
